@@ -22,12 +22,15 @@ int builtin(char **args, char *progname, char *buffer)
 	}
 	else if (strcmp(args[0], "env") == 0)
 	{
-		while (environ[idx] != NULL)
+		if (isatty(1))
 		{
-			write(1, environ[idx], strlen(environ[idx]));
-			write(1, "\n", 1);
+			while (environ[idx] != NULL)
+			{
+				write(1, environ[idx], strlen(environ[idx]));
+				write(1, "\n", 1);
 
-			idx++;
+				idx++;
+			}
 		}
 		free(args);
 		executed = 1;
