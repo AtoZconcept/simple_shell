@@ -18,7 +18,7 @@ void free_argv(int argc, char *argv[]);
 
 /*Global Variable*/
 extern char **environ;
-int exit_num;
+/*int exit_num;*/
 int exec(char **args, char **argv);
 int ex_exec(char **args, char **argv, char *fullcmd);
 char *full_path(char *paths, char *cmd);
